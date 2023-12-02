@@ -1,16 +1,23 @@
-import React from 'react'
+import Login from './components/Login'
+import Browse from './components/Browse'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+const App = () => {
+  const appRouter = createBrowserRouter([
+    {
+        path: "/",
+        element:  <Login />
+    },
+    {
+        path: "/browser",
+        element: <Browse />
+    },
 
-function App() {
+  ])
 
   return (
-    <React.Fragment>
-      <main className='App'>
-        <h1 className="text-3xl font-bold underline">
-          Hello world!
-        </h1>
-      </main>
-    </React.Fragment>
+    <RouterProvider router={appRouter}/>
   )
 }
 
-export default App
+export default App;
+
