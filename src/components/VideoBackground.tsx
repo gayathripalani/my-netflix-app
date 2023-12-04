@@ -1,8 +1,14 @@
+import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import useGetTrailerVideo from '../hooks/useGetTrailerVideo';
+import { Movie, RootState } from '../utils/type';
 
-const VideoBackground = ({ movieId }) => {
-    const trailer = useSelector((state) => state.movies.trailerVideo);
+interface VideoBackgroundProps {
+    movieId: number
+}
+
+const VideoBackground: FC<VideoBackgroundProps> = ({ movieId }) => {
+    const trailer = useSelector((state: RootState) => state.movies.trailerVideo);
     useGetTrailerVideo({movieId});
   return (
     <div>

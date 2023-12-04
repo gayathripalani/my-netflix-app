@@ -1,6 +1,9 @@
-import React from 'react'
-
-const VideoTitle = ({title, overview}) => {
+import { FC } from 'react';                                                                                                                                                                
+interface VideoTitleProps {
+    title: string;
+    overview: string;
+}
+const VideoTitle: FC<VideoTitleProps> = ({title, overview}) => {
   return (
     <div className='w-screen aspect-video pt-[20%] px-24 absolute text-white bg-gradient-to-r from-black'>
       <h1 className='text-6xl font-bold'>{title}</h1>
