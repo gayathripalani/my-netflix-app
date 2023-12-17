@@ -12,6 +12,7 @@
     "@loadable/component": "5.15.2",
     "@types/loadable__component": "^5.13.4",
     "firebase": "^10.7.0",
+    "openai": "^4.22.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
