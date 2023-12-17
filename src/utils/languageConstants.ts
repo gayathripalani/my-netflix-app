@@ -1,4 +1,6 @@
-const lang = {
+import { Languages} from "./type";
+
+const lang: Languages = {
     en: {
         search: 'Search',
         gptSearchPlaceholder: 'Search for movies, tv shows, person...',

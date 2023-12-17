@@ -7,12 +7,13 @@ import { auth } from "../utils/firebase";
 import { addUser, removeUser } from "../utils/userSlice";
 import { toggleGptSearchView } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configSlice";
+import { RootState } from "../utils/type";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector((state) => state.user);
-  const showGptSearch = useSelector((state) => state.gpt.showGptSearch);
+  const user = useSelector((state: RootState) => state.user);
+  const showGptSearch = useSelector((state: RootState) => state.gpt.showGptSearch);
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {})

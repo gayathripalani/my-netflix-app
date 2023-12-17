@@ -7,13 +7,14 @@ import useUpcomingMovies from '../hooks/useUpcomingMovies';
 import useTopRatedMovies from '../hooks/useTopRatedMovies';
 import { useSelector } from 'react-redux';
 import GptSearch from './GptSearch';
+import { RootState } from '../utils/type';
 
 const Browse = () => {
   useNowPlayingMovies();
   usePopularMovies();
   useUpcomingMovies();
   useTopRatedMovies();
-  const showGptSearch = useSelector((state) => state.gpt.showGptSearch);
+  const showGptSearch = useSelector((state: RootState) => state.gpt.showGptSearch);
 
   return (
     <div>

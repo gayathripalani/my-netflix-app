@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import lang from "../utils/languageConstants";
 import { API_OPTIONS } from "../utils/constants";
 import { addGptMovieResult } from "../utils/gptSlice";
+import { Movie, RootState } from "../utils/type";
 
 const GptSearchBar = () => {
   const dispatch = useDispatch();
-  const langKey = useSelector((state) => state.config.lang);
-  const searchText = useRef(null);
+  const langKey = useSelector((state: RootState) => state.config.lang);
+  const searchText = useRef<HTMLInputElement>(null);
 
-  const searchMovieTMDB = async (movie) => {
+  const searchMovieTMDB = async (movie: string) => {
     const data = await fetch(
       "https://api.themoviedb.org/3/search/movie?query=" +
         movie +
@@ -25,7 +26,7 @@ const GptSearchBar = () => {
   const handleGptSearchClick = async () => {
     const gptQuery =
       "Act as a Movie Recommendation system and suggest some movies for the query : " +
-      searchText.current.value +
+      searchText.current?.value +
       ". only give me names of 5 movies, comma seperated like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
   
     try {
@@ -64,7 +65,7 @@ const GptSearchBar = () => {
           ref={searchText}
           type="text"
           className=" p-4 m-4 col-span-9"
-          placeholder={lang[langKey].gptSearchPlaceholder}
+          placeholder={lang[langKey]?.gptSearchPlaceholder}
         />
         <button
           className="col-span-3 m-4 py-2 px-4 bg-red-700 text-white rounded-lg"

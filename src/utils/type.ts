@@ -36,6 +36,15 @@ export interface RootState {
         upcomingMovies: Movie[];
         trailerVideo: Video;
     };
+    gpt: {
+        showGptSearch: boolean;
+        movieResults: [Movie[]];
+        movieNames: string[];
+    };
+    config: {
+        lang: string;
+    }; 
+    user: User;
 }
 
 export interface User {
@@ -44,3 +53,13 @@ export interface User {
     displayName: string;
     photoURL: string | null;
 }
+interface Language {
+    search: string;
+    gptSearchPlaceholder: string;
+  }
+  
+export interface Languages {
+    en: Language;
+    no: Language;
+    fr: Language;
+  }
